@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kontroller" spacing="10">
+      <padding>
+    <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <Button text="Hari Berikutnya" onAction="#tambahHariBaru" />
+
+    <BarChart fx:id="diagramBatang" prefHeight="250" prefWidth="600">
+        <xAxis>
+            <CategoryAxis label="Hari"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Nilai"/>
+        </yAxis>
+    </BarChart>
+
+    <TableView fx:id="tabelNilai" prefHeight="250" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="kolomTanggal" text="Tanggal" prefWidth="200"/>
+            <TableColumn fx:id="kolomNilai" text="Nilai" prefWidth="100"/>
+            <TableColumn fx:id="kolomMasalah" text="Masalah" prefWidth="300"/>
+        </columns>
+    </TableView>
+
+</VBox>
