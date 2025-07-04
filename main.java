@@ -7,16 +7,14 @@ import javafx.stage.Stage;
 public class main extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage Stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("tabel.fxml"));
 
-        Scene scene = new Scene(root);
+        Stage.setTitle("Diagram Batang dan Table");
 
-        stage.setScene(scene);
+        Stage.setScene(new Scene(root, 640, 600));
 
-        stage.setTitle("Diagram Batang dan Tabe");
-
-        stage.show();
+        Stage.show();
     }
 
     /**

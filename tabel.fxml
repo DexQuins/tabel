@@ -3,29 +3,40 @@
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kontroller" spacing="10">
-      <padding>
-    <Insets top="15" right="15" bottom="15" left="15"/>
-    </padding>
+<BorderPane xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kontroller">
 
-    <Button text="Hari Berikutnya" onAction="#tambahHariBaru" />
+    <center>
+        <VBox spacing="20" padding="20.0, 20.0, 20.0, 20.0">
 
-    <BarChart fx:id="diagramBatang" prefHeight="250" prefWidth="600">
-        <xAxis>
-            <CategoryAxis label="Hari"/>
-        </xAxis>
-        <yAxis>
-            <NumberAxis label="Nilai"/>
-        </yAxis>
-    </BarChart>
+            <BarChart fx:id="barChart" title="Statistik Mingguan"
+                      categoryGap="10" barGap="5"
+                      prefHeight="300" prefWidth="600">
+                <xAxis>
+                    <CategoryAxis fx:id="hariAxis" label="Hari"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="nilaiAxis" label="Rata-rata (1-10)" lowerBound="0" upperBound="10" tickUnit="1"/>
+                </yAxis>
+            </BarChart>
 
-    <TableView fx:id="tabelNilai" prefHeight="250" prefWidth="600">
-        <columns>
-            <TableColumn fx:id="kolomTanggal" text="Tanggal" prefWidth="200"/>
-            <TableColumn fx:id="kolomNilai" text="Nilai" prefWidth="100"/>
-            <TableColumn fx:id="kolomMasalah" text="Masalah" prefWidth="300"/>
-        </columns>
-    </TableView>
+            <TableView fx:id="tabelRiwayat" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="kolomTanggal" text="Tanggal"/>
+                    <TableColumn fx:id="kolomRataRata" text="Rata-rata"/>
+                    <TableColumn fx:id="kolomKeterangan" text="Keterangan"/>
+                </columns>
+            </TableView>
 
-</VBox>
+            <VBox spacing="10">
+                <Label text="Isi Penilaian Hari Ini (1-10):"/>
+                <TextField fx:id="txtStres" promptText="Seberapa stresnya anda hari ini?"/>
+                <TextField fx:id="txtRelaks" promptText="Seberapa rileksnya anda hari ini?"/>
+                <TextField fx:id="txtOverwhelmed" promptText="Seberapa kewalahannya anda hari ini?"/>
+                <TextField fx:id="txtProduktif" promptText="Seberapa produktifnya anda hari ini?"/>
+                <Button text="Submit" onAction="#handleSubmit"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
